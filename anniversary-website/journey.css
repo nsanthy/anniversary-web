@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.journey-title {
+  font-family: 'Charmonman', cursive;
+  font-size: 3rem;       /* adjust as you like */
+  text-align: center;
+  color: black;          /* now it's black */
+  font-weight: 700;      /* bold */
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: #000; /* black line */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item img {
+  width: 120px;       /* small image */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin: 0 15px;
+}
+
+.caption {
+  max-width: 300px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.caption h3 {
+  margin: 0 0 10px;
+  color: #000; /* black headings */
+  font-size: 1.2rem;
+}
+
+.caption p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+    text-align: left;
+  }
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    flex-direction: row;
+  }
+}
+
+.side-back-button {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  padding: 12px 18px;
+  background-color: #eee; /* light grey */
+  color: #333; /* text color */
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+  z-index: 1000; /* stay on top */
+}
+
+.side-back-button:hover {
+  background-color: #ddd;
+}
+
