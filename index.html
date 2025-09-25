@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Year of Us</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Title -->
+    <h1 class="main-title">a year of us</h1>
+
+    <!-- Video -->
+    <div class="video-box">
+      <video autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu">
+  <button class="menu-btn" onclick="openNote()">Open Me!</button>
+  <a href="journey.html" class="menu-btn">Our Journey</a>
+  <a href="lovebirds.html" class="menu-btn">The Lovebirds</a>
+</div>
+
+
+  <!-- Pop-up note -->
+  <div id="note-popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeNote()">&times;</span>
+      <h2>a letter to Anno 💌</h2>
+      <p>
+        A little surprise gift for you, to celebrate our first anniversary. Hopefully, the first of many more to come.
+        <br><br>
+        Knowing you and spending time with you has been one of the greatest joys of my life. You inspire me to grow into a better version of myself (I mean, I even dared to make this because of you 😊).
+        <br><br>
+        I am thankful for you.<br><br>
+	You’re kind, smart, funny, and handsome. I wish you could see yourself the way I see you—then you’d understand how truly charming you are. And if others can’t see that, that’s their loss. I know I’m the lucky one, because I have you.<br><br>
+        I am thankful for us.<br><br>
+        Our relationship hasn’t been perfect — but I’ve come to realize that perfection doesn’t exist. And honestly, I love that. I love that we’re imperfect, that we sometimes argue, that we sometimes stumble. Because those moments, too, are part of our journey. They’ve helped us learn, helped us grow — not just as a couple, but as two people walking this path together.
+        <br><br>
+        What I want you to know is this: even through the rough patches, I love you. And if I were given the chance to relive my life and choose again, I would still choose you, every single time.
+        <br><br>
+        Always.<br><br>
+        I love you.<br><br>
+        xx
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openNote() {
+      document.getElementById("note-popup").style.display = "flex";
+    }
+    function closeNote() {
+      document.getElementById("note-popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>

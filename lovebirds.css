@@ -1,0 +1,71 @@
+/* Page Title */
+.page-title {
+  font-family: 'Charmonman', cursive;
+  font-size: 3rem;       /* adjust as you like */
+  text-align: center;
+  color: black;          /* now it's black */
+  font-weight: 700;      /* bold */
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Love Birds Container */
+.love-birds-container {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* Each Bird Section */
+.bird {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  font-family: Arial, sans-serif; 
+}
+
+.bird img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+}
+
+.bird h2 {
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+}
+
+.bird p {
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Side Back Button */
+.side-back-button {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  padding: 12px 18px;
+  background-color: #eee;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.side-back-button:hover {
+  background-color: #ddd;
+  transform: translateY(-52%);
+}
