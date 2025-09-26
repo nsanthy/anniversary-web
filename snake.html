@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Love Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      font-family: 'Charmonman', cursive;
+      font-size: 3rem;
+  	margin-top: 20px;
+  	margin-bottom: 40px;
+    }
+
+    canvas {
+      border: 2px solid #333;
+      background: #fff;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+      background-color: #f1f1f1;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .back-button:hover {
+      background-color: #e0e0e0;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>eat that poop!</h1>
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+  <br>
+  <button class="back-button" onclick="window.location.href='index.html'">← Back</button>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const box = 20;
+    let snake = [];
+    snake[0] = { x: 9 * box, y: 10 * box };
+
+    let food = {
+      x: Math.floor(Math.random() * 19) * box,
+      y: Math.floor(Math.random() * 19) * box
+    };
+
+    let direction;
+
+    document.addEventListener("keydown", directionHandler);
+
+    function directionHandler(event) {
+      if (event.keyCode == 37 && direction !== "RIGHT") {
+        direction = "LEFT";
+      } else if (event.keyCode == 38 && direction !== "DOWN") {
+        direction = "UP";
+      } else if (event.keyCode == 39 && direction !== "LEFT") {
+        direction = "RIGHT";
+      } else if (event.keyCode == 40 && direction !== "UP") {
+        direction = "DOWN";
+      }
+    }
+
+    function drawGame() {
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+// Draw snake (grey)
+for (let i = 0; i < snake.length; i++) {
+  ctx.fillStyle = i === 0 ? "#555555" : "#888888"; // head darker, body lighter grey
+  ctx.fillRect(snake[i].x, snake[i].y, box, box);
+  ctx.strokeStyle = "#ccc"; // lighter grey border
+  ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+}
+
+
+      // Draw food (💩 emoji)
+      ctx.font = box * 1.25 + "px Arial";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("💩", food.x + box / 2, food.y + box / 2);
+
+      // Snake head
+      let snakeX = snake[0].x;
+      let snakeY = snake[0].y;
+
+      if (direction === "LEFT") snakeX -= box;
+      if (direction === "UP") snakeY -= box;
+      if (direction === "RIGHT") snakeX += box;
+      if (direction === "DOWN") snakeY += box;
+
+      // Snake eats food
+      if (snakeX === food.x && snakeY === food.y) {
+        food = {
+          x: Math.floor(Math.random() * 19) * box,
+          y: Math.floor(Math.random() * 19) * box
+        };
+      } else {
+        snake.pop();
+      }
+
+      const newHead = { x: snakeX, y: snakeY };
+
+      // Game over
+      if (
+        snakeX < 0 || snakeY < 0 ||
+        snakeX >= canvas.width || snakeY >= canvas.height ||
+        collision(newHead, snake)
+      ) {
+        clearInterval(game);
+        alert("Game Over 💔");
+      }
+
+      snake.unshift(newHead);
+    }
+
+    function collision(head, array) {
+      for (let i = 0; i < array.length; i++) {
+        if (head.x === array[i].x && head.y === array[i].y) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    const game = setInterval(drawGame, 150);
+  </script>
+</body>
+</html>
