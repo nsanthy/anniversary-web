@@ -13,8 +13,8 @@ body {
 
 /* Title */
 .main-title {
-  font-family: 'Charmonman', cursive;
-  font-size: 3rem;       /* adjust as you like */
+  font-family: 'Amatic SC', cursive;
+  font-size: 4rem;       /* adjust as you like */
   text-align: center;
   color: black;          /* now it's black */
   font-weight: 700;      /* bold */
@@ -101,7 +101,7 @@ body {
 
 /* Add this new rule for the popup title */
 .popup-content h2 {
-  font-family: 'Charmonman', cursive;
+  font-family: 'Amatic SC', cursive;
   font-weight: 700;
   text-align: center;
 }
@@ -110,7 +110,7 @@ body {
   position: absolute;
   top: 10px;
   right: 20px;
-  font-size: 1.8em;
+  font-size: 3rem;
   cursor: pointer;
   color: #333;
 }
